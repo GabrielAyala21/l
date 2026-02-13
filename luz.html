@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 5vh 5vw;
+            color: white;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+        }
+
+        /* CARRUSEL */
+        .carousel-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px; /* Un poco más ancho para que luzcan las fotos */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: #ffd4fb; /* Fondo de la tarjeta */
+        }
+
+        .carousel {
+            display: flex;
+             transition: transform 1.2s ease-in-out; /* MÁS SUAVE */
+        }
+
+        .card {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        /* CONTENEDOR DE MEDIA: AQUÍ ESTÁ EL TRUCO */
+        .card-media {
+            width: 100%;
+            height: 500px; /* Altura fija para el carrusel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdf2f4; /* Un rosa muy clarito para el fondo si la foto no llena todo */
+            overflow: hidden;
+        }
+
+        .card-media img,
+        .card-media video {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* ESTO HACE QUE NO SE CORTE NUNCA */
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            background: white;
+        }
+
+        .card-content h2 {
+            color: #ff4b5c;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #666;
+        }
+
+        /* BOTONES */
+        button.prev,
+        button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 25px;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            color: #ff4b5c;
+            transition: 0.3s;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        button:hover { background: white; scale: 1.1; }
+
+        /* MÚSICA */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 4vh 5vw;
+            color: white;
+            margin-top: auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .card-media { height: 400px; }
+            .carousel-container { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Feliz 14 de Febrero ❤️</h1>
+    <p>Sos mi persona favorita 💘</p>
+</header>
+
+<div class="carousel-container">
+    <div class="carousel" id="carousel">
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f1.jpeg" alt="Foto 1"></div>
+            <div class="card-content">
+                <h2>Nuestro primer viaje juntos 💕</h2> 
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f2.jpeg" alt="Foto 2"></div>
+            <div class="card-content">
+                <h2>cuando fuimos al mac ✨</h2>
+                <p>estaba picante :(</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f3.jpeg" alt="Foto 3"></div>
+            <div class="card-content">
+                <h2>cuando fuimos al cine ✨</h2>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f4.jpeg" alt="Foto 4"></div>
+            <div class="card-content">
+                <h2>cuando fuimos al recital ✨</h2>
+                <p>se llovio todo</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media">
+                <video controls>
+                    <source src="fotos/v1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-content">
+                <h2>cuand nos vesamos mientras escuchabamos uno de mis temas favotitos 💖</h2>
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f5.jpeg" alt="Foto 5"></div>
+            <div class="card-content">
+              
+                <p>cuando vimos el principito</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f6.jpeg" alt="Foto 6"></div>
+            <div class="card-content">
+                <h2>Nuestro primer añito ✨</h2>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f7.jpeg" alt="Foto 7"></div>
+            <div class="card-content">
+            
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f8.jpeg" alt="Foto 8"></div>
+            <div class="card-content">
+                <h2>con los bebes✨</h2>
+                <p>jeje</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f9.jpeg" alt="Foto 9"></div>
+            <div class="card-content">
+                <h2>en la marcha kpop ✨</h2>
+                <p>con los chinitos jsjs.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f10.jpeg" alt="Foto 10"></div>
+            <div class="card-content">
+                <h2>cuando fuimis al planetario✨</h2>
+           
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f11.jpeg" alt="Foto 11"></div>
+            <div class="card-content">
+                <h2>cuando vimos a la gorda bailando regueton en el planetario ✨</h2>
+                <p>jsksks</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f12.jpeg" alt="Foto 12"></div>
+            <div class="card-content">
+                <h2>en Bariloche ✨</h2>
+             
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f13.jpeg" alt="Foto 13"></div>
+            <div class="card-content">
+                <h2>Con mi super heroe favorita✨</h2>
+                <p>La mas hermosa.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f14.jpeg" alt="Foto 14"></div>
+            <div class="card-content">
+                <h2>Una de las primeras veces que viniste a mi casita✨</h2>
+             
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f15.jpeg" alt="Foto 15"></div>
+            <div class="card-content">
+                <h2>La primera ves que fuimos a capital ✨</h2>
+            
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media">
+                <video controls>
+                    
+                    <source src="fotos/v2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-content">
+                <h2>Cuando me enseñaste a tocar el tecladito 💖</h2>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f16.jpeg" alt="Foto 16"></div>
+            <div class="card-content">
+                <h2>nuestra primera fotito juntos ✨</h2>
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/f17.jpeg" alt="Foto 17"></div>
+            <div class="card-content">
+                <h2>Una foto de nuestra primera cita ✨</h2>
+                <p>jeje</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/m1.jpeg" alt="Foto M1"></div>
+            <div class="card-content">
+                <h2>memita ✨</h2>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-media"><img src="fotos/m2.jpeg" alt="Foto M2"></div>
+            <div class="card-content">
+                <h2>memito✨</h2>
+                
+            </div>
+        </div>
+
+<div class="card">
+            <div class="card-media"> <h2>Sos el amor de mi vida✨</h2> </div><h2>No hay dia que no te ame✨</h2>
+            <div class="card-content">
+               
+                
+            </div>
+        </div>
+
+    </div>
+
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
+</div>
+
+<footer>
+    Te amo hoy, mañana y siempre 💞
+</footer>
+
+<audio id="bg-music" loop>
+    <source src="s.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Música</button>
+
+<script>
+    let index = 0;
+    const carousel = document.getElementById("carousel");
+    const totalSlides = document.querySelectorAll(".card").length;
+
+    function moveSlide(direction) {
+        index += direction;
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    // Auto reproducción cada 5 segs
+    let auto = setInterval(() => moveSlide(1), 5000);
+
+    // Detener auto al interactuar
+    function resetTimer() {
+        clearInterval(auto);
+        auto = setInterval(() => moveSlide(1), 5000);
+    }
+
+    // Swipe móvil
+    let startX = 0;
+    carousel.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    carousel.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) { moveSlide(1); resetTimer(); }
+        if (endX - startX > 50) { moveSlide(-1); resetTimer(); }
+    });
+
+    // Música
+    const music = document.getElementById("bg-music");
+    function toggleMusic() {
+        music.paused ? music.play() : music.pause();
+    }
+</script>
+
+</body>
+</html>
